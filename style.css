@@ -2162,6 +2162,15 @@ body {
   display: flex;
 }
 
+.div_content.robin-hood-poster {
+  background-image: url("https://cdn.prod.website-files.com/6668e244eae426904441d1b6/67b6a728c5f0e8ab9be8f188_image-poster-min%20(1).png");
+  background-position: 50% 100%;
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
 .div_tag {
   color: #fff;
   letter-spacing: 1px;
@@ -2258,6 +2267,16 @@ body {
   max-width: none;
 }
 
+.div_robinhood-logo {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.image_robinhood-logo {
+  width: 80%;
+}
+
 @media screen and (max-width: 991px) {
   .div_hero {
     padding-top: 80px;
@@ -2339,7 +2358,7 @@ body {
   }
 }
 
-#w-node-_584eae22-f160-4092-e400-0a4c719d723a-4441d1c2, #w-node-e9bfee78-06a6-a6d4-9583-ad10ae481d37-4441d1c2 {
+#w-node-_584eae22-f160-4092-e400-0a4c719d723a-4441d1c2, #w-node-e9bfee78-06a6-a6d4-9583-ad10ae481d37-4441d1c2, #w-node-_48ec1f55-284d-8620-8f8e-35a29368fefa-4441d1c2 {
   grid-area: span 1 / span 1 / span 1 / span 1;
 }
 
