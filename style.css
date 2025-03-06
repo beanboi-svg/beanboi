@@ -2075,16 +2075,14 @@ body {
 
 .contain_div {
   flex: 1;
-  margin-left: 100px;
-  margin-right: 100px;
 }
 
 .div_hero {
   justify-content: center;
   align-items: center;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  height: 100%;
   display: flex;
+  position: relative;
 }
 
 .image_brand {
@@ -2113,11 +2111,15 @@ body {
 }
 
 .div_content {
+  justify-content: flex-start;
+  align-items: flex-end;
   height: 550px;
+  padding: 20px;
+  display: flex;
 }
 
 .div_content.clue {
-  background-image: url("https://github.com/beanboi-svg/beanboi/blob/main/assets/asset-cooper.jpg");
+  background-image: url("https://cdn.prod.website-files.com/6668e244eae426904441d1b6/67b6854bb50220c94511618a_image-cooper.avif");
   background-position: 50%;
   background-size: cover;
   justify-content: flex-start;
@@ -2127,106 +2129,38 @@ body {
 }
 
 .div_content.work-day {
-  background-image: url("");
+  background-image: url("https://cdn.prod.website-files.com/6668e244eae426904441d1b6/67b686851e57c1742e6bdbb8_image-lights.avif");
   background-position: 50%;
   background-size: cover;
 }
 
 .div_content.robinhood {
-  background-image: url("https://cdn.prod.website-files.com/6668e244eae426904441d1b6/67b690913b1fb552721c4fe3_image_robinhood-min.jpeg");
-  background-position: 50%;
-  background-size: cover;
-}
-
-.div_content.winter-concert {
-  background-image: url("https://cdn.prod.website-files.com/6668e244eae426904441d1b6/67b69b36335a6e59be6a452b_image_winter-concert.png");
-  background-position: 50%;
-  background-size: cover;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-
-.div_content.breeze {
-  background-image: url("https://cdn.prod.website-files.com/6668e244eae426904441d1b6/67b693b8b032b0bef6e8c68c_image-breeze-va.png");
+  background-image: url("https://cdn.prod.website-files.com/6668e244eae426904441d1b6/67b690913b1fb552721c4fe3_image_robinhood-min.avif");
   background-position: 50%;
   background-size: cover;
 }
 
 .div_content.the-couch {
-  background-image: url("https://cdn.prod.website-files.com/6668e244eae426904441d1b6/67b697d55d509e40c7a7ed6b_image-the-couch-min.jpeg");
+  background-image: url("https://cdn.prod.website-files.com/6668e244eae426904441d1b6/67b697d55d509e40c7a7ed6b_image-the-couch-min.avif");
   background-position: 50%;
   background-size: cover;
-  justify-content: center;
-  align-items: center;
-  display: flex;
 }
 
 .div_content.robin-hood-poster {
-  background-image: url("https://cdn.prod.website-files.com/6668e244eae426904441d1b6/67b6a728c5f0e8ab9be8f188_image-poster-min%20(1).png");
+  background-image: url("https://cdn.prod.website-files.com/6668e244eae426904441d1b6/67b6a728c5f0e8ab9be8f188_image-poster-min%20(1).avif");
   background-position: 50% 100%;
   background-size: cover;
+  flex-flow: column;
   justify-content: center;
   align-items: center;
-  display: flex;
-}
-
-.div_tag {
-  color: #fff;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 7px 12px;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 17px;
-}
-
-.div_cursor-wrapper {
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-  height: 300vh;
-  display: flex;
-  position: absolute;
-  inset: 0%;
-}
-
-.div_content-title {
-  background-image: linear-gradient(#00000080, #00000080);
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  display: flex;
-}
-
-.div_title {
-  margin-left: 60px;
-  margin-right: 60px;
-}
-
-.text_title {
-  color: #fff;
-  text-align: center;
-  font-size: 50px;
-  line-height: 60px;
-}
-
-.video_content {
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
   display: flex;
   position: relative;
 }
 
-.image_couch-logo {
-  width: 398px;
-}
-
-.div_drag-block {
-  z-index: 2;
-  position: relative;
+.div_content.parr {
+  background-color: #0d1830;
+  justify-content: center;
+  align-items: center;
 }
 
 .section_footer {
@@ -2239,7 +2173,7 @@ body {
 
 .contain_footer {
   flex: 1;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-left: 60px;
   margin-right: 60px;
@@ -2247,24 +2181,13 @@ body {
 }
 
 .image_footer-logo {
-  width: 150px;
+  width: 500px;
 }
 
 .text-block {
   color: #3b3b3b;
   font-size: 22px;
   line-height: 30px;
-}
-
-.div_concert-logo {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-
-.image_concert-logo {
-  width: 70%;
-  max-width: none;
 }
 
 .div_robinhood-logo {
@@ -2277,19 +2200,83 @@ body {
   width: 80%;
 }
 
-@media screen and (max-width: 991px) {
-  .div_hero {
-    padding-top: 80px;
-    padding-bottom: 80px;
-  }
+.div_title-wrap {
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  display: flex;
+}
 
+.text_title {
+  font-family: GT Alpina, Georgia, sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 22px;
+}
+
+.div_content-logo {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.image_logo {
+  width: 80%;
+}
+
+.div_text-wrap {
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.text_hero-heading {
+  z-index: 1;
+  font-family: GT Alpina, Georgia, sans-serif;
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 110px;
+}
+
+.div_logo {
+  position: absolute;
+}
+
+.image_hero-logo {
+  filter: blur(30px);
+  width: 400px;
+}
+
+.div_hero-body {
+  z-index: 1;
+  text-align: center;
+  position: relative;
+}
+
+.text_hero-body {
+  text-transform: uppercase;
+  width: 400px;
+  font-family: Ginto, Arial, sans-serif;
+}
+
+.video_hero {
+  width: 50%;
+  height: 80vh;
+}
+
+@media screen and (max-width: 991px) {
   .image_brand {
     width: 500px;
   }
 
   .contain_content {
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 40px;
+    margin-right: 40px;
   }
 
   .div_content {
@@ -2300,19 +2287,17 @@ body {
     padding-top: 50px;
     padding-bottom: 50px;
   }
+
+  .image_footer-logo {
+    width: 300px;
+  }
+
+  .video_hero {
+    height: 50vh;
+  }
 }
 
 @media screen and (max-width: 767px) {
-  .contain_div {
-    margin-left: 60px;
-    margin-right: 60px;
-  }
-
-  .div_hero {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-
   .image_brand {
     width: 300px;
   }
@@ -2330,6 +2315,19 @@ body {
 
   .div_content {
     height: 500px;
+  }
+
+  .contain_footer {
+    justify-content: center;
+  }
+
+  .image_footer-logo {
+    width: 250px;
+  }
+
+  .video_hero {
+    width: 70%;
+    height: 70vh;
   }
 }
 
@@ -2356,9 +2354,14 @@ body {
     margin-left: 20px;
     margin-right: 20px;
   }
+
+  .video_hero {
+    width: 100%;
+    height: 70vh;
+  }
 }
 
-#w-node-_584eae22-f160-4092-e400-0a4c719d723a-4441d1c2, #w-node-e9bfee78-06a6-a6d4-9583-ad10ae481d37-4441d1c2, #w-node-_48ec1f55-284d-8620-8f8e-35a29368fefa-4441d1c2 {
+#w-node-_4dcc9847-1dfb-8692-ee87-c64b8f195d92-4441d1c2, #w-node-_584eae22-f160-4092-e400-0a4c719d723a-4441d1c2, #w-node-_48ec1f55-284d-8620-8f8e-35a29368fefa-4441d1c2 {
   grid-area: span 1 / span 1 / span 1 / span 1;
 }
 
@@ -2371,5 +2374,19 @@ body {
   src: url('https://cdn.prod.website-files.com/6668e244eae426904441d1b6/67b683f6bd9fe880398d00b7_Ginto-Medium.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT Alpina';
+  src: url('https://cdn.prod.website-files.com/6668e244eae426904441d1b6/67b76adca51d929c863a4153_GTAlpina-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gtalpina';
+  src: url('https://cdn.prod.website-files.com/6668e244eae426904441d1b6/67b76adc1a8ece99ce587c3a_GTAlpina-Light%20Italic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
   font-display: swap;
 }
