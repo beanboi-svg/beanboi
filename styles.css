@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Geist+Mono&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    color: #000000;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    overflow: hidden;
+}
+
+#wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff;
+}
+
+h1 {
+    font-family: 'Hedvig Letters Serif', serif;
+    font-size: 100px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin: 0;
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 0.5s;
+    white-space: nowrap;
+}
+
+#trailing {
+    opacity: 0;
+    display: inline-block;
+    animation: fadeIn 3s ease forwards;
+    animation-delay: 2s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 40px;
+    }
+}
