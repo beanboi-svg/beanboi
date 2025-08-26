@@ -86,7 +86,6 @@ function applyTheme(isDark) {
   }
 }
 
-
 // Manual theme toggle button
 const toggleBtn = document.getElementById("theme-toggle");
 const leftCircle = document.getElementById("left-circle");
