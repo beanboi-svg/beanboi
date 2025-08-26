@@ -73,16 +73,16 @@ function applyTheme(isDark) {
     document.body.classList.add("dark-mode");
     document.body.classList.remove("light-mode");
     leftCircle.setAttribute("fill", "white");
-    leftCircle.removeAttribute("stroke");
-    rightCircle.setAttribute("stroke", "white");
+    leftCircle.setAttribute("stroke", "white");
     rightCircle.setAttribute("fill", "none");
+    rightCircle.setAttribute("stroke", "white");
   } else {
     document.body.classList.remove("dark-mode");
     document.body.classList.add("light-mode");
-    leftCircle.setAttribute("stroke", "black");
     leftCircle.setAttribute("fill", "none");
+    leftCircle.setAttribute("stroke", "black");
     rightCircle.setAttribute("fill", "black");
-    rightCircle.removeAttribute("stroke");
+    rightCircle.setAttribute("stroke", "black");
   }
 }
 
