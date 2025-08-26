@@ -86,29 +86,6 @@ function applyTheme(isDark) {
   }
 }
 
-// Detect user location and time to apply dark/light mode
-navigator.geolocation.getCurrentPosition(async (position) => {
-  const lat = position.coords.latitude;
-  const lng = position.coords.longitude;
-
-  try {
-    const response = await fetch(`https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&formatted=0`);
-    const data = await response.json();
-
-    // Parse sunrise/sunset as UTC
-    const sunriseUTC = new Date(data.results.sunrise + "Z");
-    const sunsetUTC = new Date(data.results.sunset + "Z");
-
-    const nowUTC = new Date(); // current UTC time
-
-    // Dark if current time is before sunrise or after sunset
-    const isDark = nowUTC < sunriseUTC || nowUTC > sunsetUTC;
-    applyTheme(isDark);
-
-  } catch (err) {
-    console.error("Error fetching sunrise/sunset:", err);
-  }
-});
 
 // Manual theme toggle button
 const toggleBtn = document.getElementById("theme-toggle");
