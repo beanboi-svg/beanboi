@@ -19,8 +19,10 @@ document.addEventListener("mousemove", (e) => {
   let newLeft = e.clientX - offsetX;
   let newTop = e.clientY - offsetY;
 
+  const toggleHeight = toggleBtn ? toggleBtn.offsetHeight + 30 : 0;
+
   newLeft = Math.max(0, Math.min(window.innerWidth - h1.offsetWidth, newLeft));
-  newTop = Math.max(0, Math.min(window.innerHeight - h1.offsetHeight, newTop));
+  newTop = Math.max(0, Math.min(window.innerHeight - h1.offsetHeight - toggleHeight, newTop));
 
   h1.style.left = newLeft + "px";
   h1.style.top = newTop + "px";
@@ -44,8 +46,10 @@ document.addEventListener("touchmove", (e) => {
   let newLeft = touch.clientX - offsetX;
   let newTop = touch.clientY - offsetY;
 
+  const toggleHeight = toggleBtn ? toggleBtn.offsetHeight + 30 : 0;
+
   newLeft = Math.max(0, Math.min(window.innerWidth - h1.offsetWidth, newLeft));
-  newTop = Math.max(0, Math.min(window.innerHeight - h1.offsetHeight, newTop));
+  newTop = Math.max(0, Math.min(window.innerHeight - h1.offsetHeight - toggleHeight, newTop));
 
   h1.style.left = newLeft + "px";
   h1.style.top = newTop + "px";
@@ -60,5 +64,60 @@ const trailing = document.querySelector("#trailing");
 if (trailing) {
   trailing.addEventListener("animationend", () => {
     document.title = "With Care, from Joey";
+  });
+}
+
+// Function to apply theme based on isDark boolean
+function applyTheme(isDark) {
+  if (isDark) {
+    document.body.classList.add("dark-mode");
+    document.body.classList.remove("light-mode");
+    leftCircle.setAttribute("fill", "white");
+    leftCircle.removeAttribute("stroke");
+    rightCircle.setAttribute("stroke", "white");
+    rightCircle.setAttribute("fill", "none");
+  } else {
+    document.body.classList.remove("dark-mode");
+    document.body.classList.add("light-mode");
+    leftCircle.setAttribute("stroke", "black");
+    leftCircle.setAttribute("fill", "none");
+    rightCircle.setAttribute("fill", "black");
+    rightCircle.removeAttribute("stroke");
+  }
+}
+
+// Detect user location and time to apply dark/light mode
+navigator.geolocation.getCurrentPosition(async (position) => {
+  const lat = position.coords.latitude;
+  const lng = position.coords.longitude;
+
+  try {
+    const response = await fetch(`https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&formatted=0`);
+    const data = await response.json();
+
+    // Parse sunrise/sunset as UTC
+    const sunriseUTC = new Date(data.results.sunrise + "Z");
+    const sunsetUTC = new Date(data.results.sunset + "Z");
+
+    const nowUTC = new Date(); // current UTC time
+
+    // Dark if current time is before sunrise or after sunset
+    const isDark = nowUTC < sunriseUTC || nowUTC > sunsetUTC;
+    applyTheme(isDark);
+
+  } catch (err) {
+    console.error("Error fetching sunrise/sunset:", err);
+  }
+});
+
+// Manual theme toggle button
+const toggleBtn = document.getElementById("theme-toggle");
+const leftCircle = document.getElementById("left-circle");
+const rightCircle = document.getElementById("right-circle");
+
+if (toggleBtn) {
+  toggleBtn.addEventListener("click", () => {
+    const isCurrentlyDark = document.body.classList.contains("dark-mode");
+    applyTheme(!isCurrentlyDark);
   });
 }
