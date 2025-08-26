@@ -12,12 +12,31 @@ html, body {
     overflow: hidden;
 }
 
+body.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+body.dark-mode {
+  background-color: #000000;
+  color: #ffffff;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+body.light-mode h1 {
+  color: #000000;
+}
+
+body.dark-mode h1 {
+  color: #ffffff;
+}
+
 #wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #ffffff;
 }
 
 h1 {
@@ -30,6 +49,7 @@ h1 {
     animation: fadeIn 1.5s ease forwards;
     animation-delay: 0.5s;
     white-space: nowrap;
+    color: inherit;
 }
 
 #trailing {
@@ -37,6 +57,30 @@ h1 {
     display: inline-block;
     animation: fadeIn 3s ease forwards;
     animation-delay: 2s;
+}
+
+#theme-toggle {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+  animation-delay: 3.5s; /* slightly after trailing text */
+}
+
+#theme-icon path {
+  transition: all 0.3s ease;
+}
+
+#theme-toggle svg {
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+#theme-toggle:hover svg {
+  width: 28px;
+  height: 12.923px;
 }
 
 @keyframes fadeIn {
@@ -47,6 +91,10 @@ h1 {
 
 @media (max-width: 768px) {
     h1 {
-        font-size: 30px;
+        font-size: 40px;
+    }
+    
+    #theme-toggle {
+        bottom: 50px;
     }
 }
