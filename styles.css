@@ -67,7 +67,7 @@ h1 {
   cursor: pointer;
   opacity: 0;
   animation: fadeIn 1.5s ease forwards;
-  animation-delay: 3.5s; /* slightly after trailing text */
+  animation-delay: 3.5s;
 }
 
 #theme-icon path {
